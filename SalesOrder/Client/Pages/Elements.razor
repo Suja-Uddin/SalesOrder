@@ -1,0 +1,29 @@
+﻿@page "/orders/{OrderId}/windows/{WindowId}/elements"
+
+@using SalesOrder.DataContract
+
+<SfGrid TValue="Element" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
+    <SfDataManager Url="@($"/api/windows/{WindowId}/elements")" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
+    <GridColumns>
+        <GridColumn Field="@nameof(Element.Id)" IsPrimaryKey="true" Visible="false"></GridColumn>
+        <GridColumn Field="@nameof(Element.Number)" IsPrimaryKey="true" AllowEditing="false"></GridColumn>
+        <GridColumn Field="@nameof(Element.Type)" Width="150" AllowEditing="false"></GridColumn>
+        <GridColumn Field="@nameof(Element.Height)" Width="150"></GridColumn>
+        <GridColumn Field="@nameof(Element.Width)" Width="150"></GridColumn>
+    </GridColumns>
+    <GridEvents TValue="Element" OnActionFailure="Failure"></GridEvents>
+</SfGrid>
+
+@code {
+    [Parameter]
+    public string OrderId { get; set; }
+    [Parameter]
+    public string WindowId { get; set; }
+
+    private void Failure(FailureEventArgs e)
+    {
+        Console.WriteLine(e.Error.Message);
+        Console.WriteLine(e.Error.StackTrace);
+    }
+}
