@@ -24,7 +24,6 @@ namespace SalesOrder.BLL
         {
             _context.Orders.Add(new Order
             {
-                OrderId = order.Id,
                 Name = order.Name,
                 State = order.State
             });

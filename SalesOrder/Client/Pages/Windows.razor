@@ -2,7 +2,7 @@
 
 @using SalesOrder.DataContract
 
-<SfGrid TValue="Window" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
+<SfGrid TValue="Window" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Save", "Cancel" })">
     <SfDataManager Url="@($"/api/orders/{OrderId}/windows")" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>
@@ -13,7 +13,7 @@
             <Template>
                 @{
                     var window = (context as Window);
-                    <div><a href="/orders/@OrderId/windows/@window.Id/elements"> View</a></div>
+                    <div><a href="/orders/@OrderId/windows/@window.Id/elements"> @window.ElementsCount </a></div>
                 }
             </Template>
         </GridColumn>

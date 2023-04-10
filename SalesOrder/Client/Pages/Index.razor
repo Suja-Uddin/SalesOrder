@@ -2,7 +2,7 @@
 
 @using SalesOrder.DataContract
 
-<SfGrid TValue="Order" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
+<SfGrid TValue="Order" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Save", "Cancel" })">
     <SfDataManager Url="/api/Orders" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>

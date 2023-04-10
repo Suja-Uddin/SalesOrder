@@ -22,15 +22,25 @@ namespace SalesOrder.BLL
 
         public async Task<List<Dto.Window>> GetAll(int orderId)
         {
-            return await _context.Windows
-                .Where(w => w.OrderId == orderId)
-                .Select(w => new Dto.Window
-                {
-                    Id = w.WindowId,
-                    Name = w.Name,
-                    Quantity = w.Quantity,
-                    OrderId = w.OrderId
-                }).ToListAsync();
+            var windows = await (from w in _context.Windows
+                                 join e in _context.Elements on w.WindowId equals e.WindowId
+                                 where w.OrderId == orderId
+                                 group e by new
+                                 {
+                                     w.WindowId,
+                                     w.Name,
+                                     w.Quantity,
+                                     w.OrderId
+                                 } into grp
+                                 select new Dto.Window
+                                 {
+                                     Id = grp.Key.WindowId,
+                                     Name = grp.Key.Name,
+                                     Quantity = grp.Key.Quantity,
+                                     OrderId = grp.Key.OrderId,
+                                     ElementsCount = grp.Count()
+                                 }).ToListAsync();
+            return windows;
         }
 
         public async Task Create(Dto.Window window)

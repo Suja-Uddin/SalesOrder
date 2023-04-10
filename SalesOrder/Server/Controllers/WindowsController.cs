@@ -30,7 +30,14 @@ namespace SalesOrder.API.Controllers
 
             return new
             {
-                Items = windows,
+                Items = windows.Select(w => new Window
+                {
+                    Id = w.Id,
+                    Name = w.Name,
+                    Quantity = w.Quantity,
+                    OrderId = w.OrderId,
+                    ElementsCount = w.ElementsCount
+                }).ToList(),
                 Count = windows.Count()
             };
         }
