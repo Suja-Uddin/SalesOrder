@@ -19,5 +19,8 @@ SQLite
 
 ## Screenshots
 
-[![Screenshot] (Screenshots/Elements Details Page.png)
-](https://github.com/Suja-Uddin/SalesOrder/blob/master/Screenshots/Elements%20Details%20Page.png)
+![Orders Index Page](https://user-images.githubusercontent.com/6359801/231252010-4e5b3609-bf0d-465d-80e5-88ddc370fb92.png)
+
+![Windows Details Page](https://user-images.githubusercontent.com/6359801/231252039-aa9e0ed8-2c09-4d7d-bcc2-a29fa95bbef3.png)
+
+![Elements Details Page](https://user-images.githubusercontent.com/6359801/231251931-d96037c4-f37f-4f79-94ed-d02a621c661e.png)
