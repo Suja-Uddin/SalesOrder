@@ -10,6 +10,7 @@ namespace SalesOrder.DataContract
     public class Window
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public int Quantity { get; set; }
         public int OrderId { get; set; }

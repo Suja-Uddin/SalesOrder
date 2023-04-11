@@ -2,13 +2,17 @@
 
 @using SalesOrder.DataContract
 
-<SfGrid TValue="Window" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Save", "Cancel" })">
+<h1 style="text-align: center"> Windows Details </h1>
+
+<a href="/"> <span style="font-size: large;font-weight:bold">&#8592; Back </span> </a>
+
+<SfGrid TValue="Window" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
     <SfDataManager Url="@($"/api/orders/{OrderId}/windows")" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>
         <GridColumn Field="@nameof(Window.Id)" IsPrimaryKey="true" Visible="false"></GridColumn>
         <GridColumn Field="@nameof(Window.Name)" Width="150"></GridColumn>
-        <GridColumn Field="@nameof(Window.Quantity)" Width="150" AllowEditing="false"></GridColumn>
+        <GridColumn Field="@nameof(Window.Quantity)" Width="150" AllowEditing="false" ValidationRules="@(new ValidationRules { Min = 1})"></GridColumn>
         <GridColumn HeaderText="Total Sub-Elements" TextAlign="TextAlign.Center" Width="120">
             <Template>
                 @{
@@ -18,16 +22,9 @@
             </Template>
         </GridColumn>
     </GridColumns>
-    <GridEvents TValue="Window" OnActionFailure="Failure"></GridEvents>
 </SfGrid>
 
 @code {
     [Parameter]
     public string OrderId { get; set; }
-
-    private void Failure(FailureEventArgs e)
-    {
-        Console.WriteLine(e.Error.Message);
-        Console.WriteLine(e.Error.StackTrace);
-    }
 }

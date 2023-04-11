@@ -23,7 +23,8 @@ namespace SalesOrder.BLL
         public async Task<List<Dto.Window>> GetAll(int orderId)
         {
             var windows = await (from w in _context.Windows
-                                 join e in _context.Elements on w.WindowId equals e.WindowId
+                                 join e in _context.Elements on w.WindowId equals e.WindowId into egrp
+                                 from e in egrp.DefaultIfEmpty()
                                  where w.OrderId == orderId
                                  group e by new
                                  {
@@ -38,7 +39,7 @@ namespace SalesOrder.BLL
                                      Name = grp.Key.Name,
                                      Quantity = grp.Key.Quantity,
                                      OrderId = grp.Key.OrderId,
-                                     ElementsCount = grp.Count()
+                                     ElementsCount = grp.Where(e => e != null).Count()
                                  }).ToListAsync();
             return windows;
         }

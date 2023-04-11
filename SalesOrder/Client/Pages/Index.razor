@@ -2,7 +2,9 @@
 
 @using SalesOrder.DataContract
 
-<SfGrid TValue="Order" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Save", "Cancel" })">
+<h1 style="text-align: center"> Orders </h1>
+
+<SfGrid TValue="Order" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
     <SfDataManager Url="/api/Orders" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>
@@ -18,15 +20,7 @@
             </Template>
         </GridColumn>
     </GridColumns>
-    <GridEvents TValue="Order" OnActionFailure="Failure"></GridEvents>
 </SfGrid>
 
-
 @code{
-
-    private void Failure(FailureEventArgs e)
-    {
-        Console.WriteLine(e.Error.Message);
-        Console.WriteLine(e.Error.StackTrace);
-    }
 }

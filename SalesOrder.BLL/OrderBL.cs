@@ -34,7 +34,8 @@ namespace SalesOrder.BLL
         public async Task<List<Dto.Order>> GetAll()
         {
             var orders = await (from o in _context.Orders
-                          join w in _context.Windows on o.OrderId equals w.OrderId
+                          join w in _context.Windows on o.OrderId equals w.OrderId into wgrp
+                          from w in wgrp.DefaultIfEmpty()
                           group w by new
                           {
                               Id = o.OrderId,
@@ -46,7 +47,7 @@ namespace SalesOrder.BLL
                               Id = grp.Key.Id,
                               Name = grp.Key.Name,
                               State = grp.Key.State,
-                              WindowsCount = grp.Count()
+                              WindowsCount = grp.Where(w => w != null).Count()
                           }).ToListAsync();
             return orders;
         }
