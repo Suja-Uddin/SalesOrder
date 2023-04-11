@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.UI", "SalesOrder
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.DAL", "SalesOrder\Shared\SalesOrder.DAL.csproj", "{F73D03B6-4FF5-4D1F-BFFE-D91C5FFA5EE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.DataContract", "SalesOrder.DataContract\SalesOrder.DataContract.csproj", "{FAACE1FD-C970-45E3-85E3-BA7C94B34C5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.DataContract", "SalesOrder\SalesOrder.DataContract\SalesOrder.DataContract.csproj", "{FAACE1FD-C970-45E3-85E3-BA7C94B34C5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.BLL", "SalesOrder.BLL\SalesOrder.BLL.csproj", "{443882A1-B555-4650-BBDE-A824773F842A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrder.BLL", "SalesOrder\SalesOrder.BLL\SalesOrder.BLL.csproj", "{443882A1-B555-4650-BBDE-A824773F842A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SalesOrder.BLL\SalesOrder.BLL.csproj" />
-    <ProjectReference Include="..\..\SalesOrder.DataContract\SalesOrder.DataContract.csproj" />
+    <ProjectReference Include="..\SalesOrder.BLL\SalesOrder.BLL.csproj" />
+    <ProjectReference Include="..\SalesOrder.DataContract\SalesOrder.DataContract.csproj" />
     <ProjectReference Include="..\Client\SalesOrder.UI.csproj" />
   </ItemGroup>
 
