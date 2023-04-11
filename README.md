@@ -8,7 +8,9 @@ Target Framework: .NET 5
 IDE: Visual Studio 2019
 
 #### UI
-Blazor Webassembly 5.0.17 with Syncfusion library (UI Data Grid) 19.4.0.56
+Blazor Webassembly 5.0.17 
+
+Syncfusion library (UI Data Grid) 19.4.0.56 (*Note*: You might see a red warning on app startup since this is a trial version)
 
 #### Server
 .NET 5 WEB API
